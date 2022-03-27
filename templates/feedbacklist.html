@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+table, th, td {
+  border: 2px solid green;
+}
+</style>
+<!-- <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style> -->
+  <title>
+    FeedBack From
+  </title>
+  <hr>
+  <center><h1>Customer & Retailer Feedback list View Form</h1></center>
+  <hr>
+  <hr>
+</head>
+<body>
+  <center>
+  <form action="/">
+  <input type="submit" action="/" value="HOMEPAGE">
+</form></center>
+  <table>
+    <tr>
+      <th><center><h3>FeedBack-Id</h3></center></th>
+      <th><center><h3>Contractor-Id</h3></center></th>
+      <th><center><h3>Status</h3><center></th>
+    <th><center><h3>Opinion</h3></center></th>
+    <th><center><h3>Action<h3><center></th>
+    <th><center><h3>Modify<h3><center></th>
+      <th><center><h3>Remove<h3><center></th>
+    </tr>
+
+  {% for x in listfeed %}
+<tr>
+<td><h4>{{x["feedback_id"]}}</h4></td>
+<td><h4>{{x["contr_id"]}}</h4></td>
+<td><h4>{{x["status"]}}</h4></td>
+<td><h4>{{x["opinion"]}}</h4></td>
+
+
+    <td>
+      <form method="post" action="/details/{{x["feedback_id"]}}/">
+        <input type="submit" value="Details" >
+      </form>
+      </td>
+      <td>
+        <form method="post" action="/edit/{{x["feedback_id"]}}/">
+          <input type="submit" value="Edit" >
+        </form>
+        </td>
+
+        <td>
+          <form method="post" action="/delete/{{x["feedback_id"]}}/">
+            <input type="submit" value="Delete" >
+          </form>
+          </td>
+  </tr>
+    {% endfor %}
+<!-- {{origin}} -->
+</body>
+</html>

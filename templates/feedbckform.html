@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+table, th, td {
+  border: 1px solid green;
+}
+</style>
+  <title>
+    FeedBack From
+  </title>
+  <hr>
+  <center><h1>Customer & Retailer Feedback Form</h1></center>
+  <hr>
+  <hr>
+</head>
+<body>
+  <center>
+    <form action='/listview'>
+      <input type="submit" value="FEEDLIST">
+    </form>
+
+    <form method="post" action='/listview'>
+  <table>
+    <thead></thead>
+    <tbody>
+      <tr>
+        <td>
+
+  <label for="origin">Origin of FeedBack</label>
+  <select name="origin" id="origin" required>
+    <option value="">--Please choose an option--</option>
+    <option value="Retailer">Retailer</option>
+    <option value="Consumer">Consumer</option>
+  </select>
+
+</td>
+
+<td>
+
+  <label for="status">Order Status</label>
+  <select name="status" id="status" required>
+    <option value="">--Please choose an option--</option>
+    <option value="progress">In progress</option>
+    <option value="Completed">Completed</option>
+    <option value="Canceled">canceled</option>
+  </select>
+
+</td></tr>
+
+<tr><td>
+<center>
+<label for="clist">Contractor List</label>
+<select name="clist" id="clist" required>
+  <option value="">--Please choose an option--</option>
+  {% for man in cont_list %}
+  <option value="{{man.cid}}">{{man["name"]}}</option>
+  <!-- <option value="Mr.raghunamdan">Mr.raghunamdan</option>
+  <option value="Mr.BALAKRISHNAN AYAR">Mr.BALAKRISHNAN AYAR</option>
+  <option value="MR. KC MURLI">MR. KC MURLI</option> -->
+  {% endfor %}
+</select>
+
+</center>
+
+</td>
+<td>
+<center>
+<label for="opinion">Feedback [Positive/Negative]</label>
+<select name="opinion" id="opinion" required>
+  <option value="">--Please choose an option--</option>
+  <option value="positive">Positive</option>
+  <option value="negative">Negative</option>
+</select>
+</center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center>
+  <!-- <label for="feedback"> Please provide Your Feedback</label>
+  <input type="text" name="feedback" required> -->
+  <label for="feedback">Provide Your Feedback:</label>
+<textarea id="feedback" name="feedback" rows="4" cols="50" placeholder="enter your feedback..."></textarea>
+</center>
+</td>
+</tr>
+
+
+
+<tr>
+  <td>
+<center>
+  <label for="time">Complete Cycle time</label>
+  <input type="text" name="time"  required placeholder="enter time like-15 Days">
+</center>
+
+</td>
+</tr>
+<!-- <tr>
+  <td>
+<center>
+  <label for="costprice">Complete Cycle time</label>
+  <input type="costprice" name="time"  required placeholder="Enter your buying price">
+</center>
+
+</td>
+</tr> -->
+</table>
+<input type="submit"> </form>
+</center>
+
+</body>
+</html>

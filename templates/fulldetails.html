@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head><style>
+table, th, td {
+border: 2px solid green;
+}
+</style><title></title></head>
+<body>
+  <table>
+    <thead>
+      <th>feedback_id</th>
+      <th>origin</th>
+      <th>status</th>
+      <th>contr_id</th>
+      <th>opinion</th>
+      <th>feedback</th>
+      <th>time</th>
+      <th>Attention</th>
+      <th>Quicknote</th>
+
+  {% for data in list1 %}
+  <tr>
+<td><h3>{{data["feedback_id"]}}</h3></td>
+  <td><h3>{{data["origin"]}}</h3></td>
+  <td><h3>{{data["status"]}}</h3></td>
+  <td><h3>{{data["contr_id"]}}</h3></td>
+  <td><h3>{{data["opinion"]}}</h3></td>
+  <td><h3>{{data["feedback"]}}</h3></td>
+  <td><h3>{{data["time"]}}</h3></td>
+  <td><h3>{{data["attention"]}}</h3></td>
+  <td><h3>{{data["quicknote"]}}</h3></td>
+
+
+  </td>
+</tr>
+  {% endfor %}
+  </table>
+<hr>
+<h3>Now Do some Action ON FeedBack Form</h3>
+<form action="/">
+<input type="submit" action="/" value="HOMEPAGE">
+</form></center>
+
+<form action="/listview">
+<input type="submit" action="/" value="FEEDLIST">
+</form></center>
+<hr>
+  <table>
+    <thead>
+      <th>Attention</th>
+      <th>Quick Note</th>
+      <th>Action</th>
+    </thead>
+    <tr>
+      <td>
+      <center>
+  <form action="/final_submit/{{fid}}/" method="POST">
+    <label for="attention">Need Any Attention</label>
+    <select name="attention" id="attention" required>
+      <option value="">--choose attention--</option>
+      <option value="Need attenion">Need attenion</option>
+      <option value="No Need attenion">No Need attenion</option>
+    </select>
+</td>
+<td>
+    <label for="quicknote">Provide Quick Note:</label>
+  <textarea id="quicknote" name="quicknote" rows="4" cols="50" placeholder="enter your quick Note..."></textarea>
+</td>
+<td>
+  <input type="submit" value="Final submit"></td>
+  </form>
+  </center>
+    </tr>
+  </table>
+</body>
+</html>
